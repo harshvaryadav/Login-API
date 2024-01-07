@@ -4,7 +4,11 @@ const RegisterUser = async (req,res) => {
       try{
            await connectDB();
            const user = req.body;
-           const response = await User.findOne(user);
+           const response = await User.findOne(
+                 {
+                     UserName : user.UserName,
+                     Source : user.Source
+               });
            if(response != null)
            {
               res.send({Ok : true , success : false, msg : 'Username already exists. Please choose a different one.'});
