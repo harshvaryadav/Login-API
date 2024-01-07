@@ -6,6 +6,9 @@ const UserSchema = new mongoose.Schema({
       },
       Password : {
         type : String
+      },
+      Source : {
+        type : String
       }
 });
 

@@ -3,17 +3,16 @@ const LogIn_User = async (req,res) => {
       const user = req.body;
       try{
       const response = await User.findOne(user);
-      console.log(response);
       if(response != null)
       {
-         res.send({ok : true , status : "True",message : "LoggedIn Successfully"});
+         res.send({ok : true , status : "True",message : "Welcome back! You have successfully logged in. Enjoy your experience!"});
       }
       else{
-         res.send({ok : true , status : "False" , message : "UserName Or Password Is Incorrect"});
+         res.send({ok : true , status : "False" , message : "Invalid username or password. Please try again."});
       }
     }
     catch(ex){
-       res.send({ok : false, status : "Unknown" , message : "Something went wrong"});
+       res.send({ok : false, status : "Unknown" , message : "Something went wrong. Please try again."});
     }
 }
 
