@@ -1,8 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const LoginRouter = require("./Routes/Login");
 const SignupRouter = require("./Routes/Signup");
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT;
 const connectDB = require('./DB/connect');
 app.use(express.json());
 var bodyParser = require('body-parser');
@@ -15,9 +16,9 @@ app.use("/api/Login",LoginRouter);
 app.use("/api/SignUp",SignupRouter);
 const Start = async ()=>{
       try {
-          await connectDB();
+          await connectDB(process.env.MONGODB_URL);
           app.listen(PORT,()=>{
-              console.log("Server is start and live on port 3000");
+              console.log("Server is start and live on port " + PORT);
           });
       }
       catch(error)
