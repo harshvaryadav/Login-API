@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const connectDB = () =>{
-      const db = mongoose.connect("mongodb+srv://harshvardhancse1934:DQLabvuXANgzwxmE@loginapi.tl8owgp.mongodb.net/");
+const connectDB = (Uri) =>{
+      const db = mongoose.connect(Uri);
       console.log("Connected to Db");
       return db;
 }
