@@ -1,8 +1,6 @@
-const connectDB = require('../DB/connect');
 const User = require('../Models/User');
 const RegisterUser = async (req,res) => {
       try{
-           await connectDB();
            const user = req.body;
            const response = await User.findOne(
                  {
